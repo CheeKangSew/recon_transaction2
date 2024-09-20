@@ -31,6 +31,9 @@ def load_and_prepare_data(file1, file2):
     # Remove spaces in 'Vehicle License Number' and store in 'VehicleNumber1'
     df1['VehicleNumber1'] = df1['Vehicle License Number'].str.replace(r'\s+', '', regex=True)
 
+    # Remove spaces in 'VehicleRegistrationNo' and store in 'VehicleNumber2'
+    df2['VehicleNumber2'] = df2['VehicleRegistrationNo'].str.replace(r'\s+', '', regex=True)
+
     # Filter necessary columns for matching
     df1_filtered = df1[['TransactionDateTime', 'Net Amount in Customer currency', 'Vehicle License Number']]
     df2_filtered = df2[['TransactionDateTime', 'TotalAmount', 'VehicleRegistrationNo']]
