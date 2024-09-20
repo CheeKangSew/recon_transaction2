@@ -35,8 +35,8 @@ def load_and_prepare_data(file1, file2):
     df2['VehicleNumber2'] = df2['VehicleRegistrationNo'].str.replace(r'\s+', '', regex=True)
 
     # Filter necessary columns for matching
-    df1_filtered = df1[['TransactionDateTime', 'Net Amount in Customer currency', 'Vehicle License Number']]
-    df2_filtered = df2[['TransactionDateTime', 'TotalAmount', 'VehicleRegistrationNo']]
+    df1_filtered = df1[['TransactionDateTime', 'Net Amount in Customer currency', 'VehicleNumber1']]
+    df2_filtered = df2[['TransactionDateTime', 'TotalAmount', 'VehicleNumber2']]
 
     # Rename columns for clarity
     df1_filtered.rename(columns={'Net Amount in Customer currency': 'Amount1', 'Vehicle License Number': 'VehicleNumber1'}, inplace=True)
