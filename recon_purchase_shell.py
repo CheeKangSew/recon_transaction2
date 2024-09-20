@@ -29,7 +29,7 @@ def load_and_prepare_data(file1, file2):
     df2['TotalAmount'] = pd.to_numeric(df2['TotalAmount'], errors='coerce')
 
     # Remove spaces in 'Vehicle License Number' and store in 'VehicleNumber1'
-    df1['VehicleNumber1'] = df1['Vehicle License Number'].str.replace(' ', '', regex=False)
+    df1['VehicleNumber1'] = df1['Vehicle License Number'].str.replace(r'\s+', '', regex=True)
 
     # Filter necessary columns for matching
     df1_filtered = df1[['TransactionDateTime', 'Net Amount in Customer currency', 'Vehicle License Number']]
